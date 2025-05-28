@@ -1,66 +1,96 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🖥️ Activity & Screenshot Monitoring System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern, multi-platform monitoring system that captures screenshots, tracks user activity, and presents everything on a sleek, real-time dashboard.
 
-## About Laravel
+## 🚀 Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Screenshot Capture**
+  - Automated, multi-monitor screenshot capture
+  - Configurable capture intervals
+  - Secure storage and retrieval
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Activity Monitoring**
+  - Active window tracking
+  - Application usage monitoring
+  - Real-time activity logging
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Modern Dashboard**
+  - Real-time data display
+  - Screenshot gallery view
+  - Activity timeline
+  - Responsive design
 
-## Learning Laravel
+## 🧰 Technology Stack
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Backend**: Laravel 10.x  
+- **Frontend**: Next.js 14 with TypeScript  
+- **Monitoring Agent**: Python 3.x  
+- **Database**: MySQL  
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## ⚙️ Setup Instructions
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+# Backend Setup
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan serve
 
-## Laravel Sponsors
+# Frontend Setup
+cd frontend
+npm install
+cp .env.example .env.local
+npm run dev
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+# Monitoring Agent Setup
+cd agent
+pip install -r requirements.txt
+cp .env.example .env
+python monitor.py
 
-### Premium Partners
+# Backend Environment (.env)
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+# Frontend Environment (.env.local)
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8000/api
 
-## Contributing
+# Monitoring Agent Environment (.env)
+API_BASE_URL=http://localhost:8000/api
+SCREENSHOT_INTERVAL=300
+ACTIVITY_INTERVAL=60
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# API Endpoints
 
-## Code of Conduct
+# Screenshots
+POST   /api/screenshots         - Upload new screenshot
+GET    /api/screenshots         - Retrieve screenshots list
+DELETE /api/screenshots/{id}    - Delete a screenshot
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Activities
+POST   /api/activities          - Log new activity
+GET    /api/activities          - Retrieve activities list
+PUT    /api/activities/{id}     - Update activity status
 
-## Security Vulnerabilities
+# Development Info
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Prerequisites:
+- PHP 8.1 or higher
+- Node.js 18 or higher
+- Python 3.8 or higher
+- MySQL 8.0 or higher
 
-## License
+Recommended Tools:
+- Composer
+- npm or yarn
+- pip
+- Git
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+✅ This file merges everything into one logical flow, with **cleanly grouped configuration, API, and development instructions** — exactly as requested. Let me know if you'd like it saved to a `.md` file or formatted for GitHub Pages, Notion, or other tools.
+
