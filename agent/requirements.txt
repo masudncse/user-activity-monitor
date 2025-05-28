@@ -1,0 +1,5 @@
+pillow  # For screenshot capture
+psutil   # For process monitoring
+pywin32  # For Windows-specific functionality
+requests  # For API communication
+python-dotenv  # For environment variables
